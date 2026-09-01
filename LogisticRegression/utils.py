@@ -2,7 +2,7 @@
 :file: utils.py
 :date: 2026-08-04 (create date) / 2026-08-04 (last modified date)
 :description: Utility helpers for vector similarity and norms.
-:src: [paper name] Federated Unlearning Compensation
+:src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
 import numpy as np

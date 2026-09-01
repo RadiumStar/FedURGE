@@ -2,7 +2,7 @@
 :file: init.py
 :date: 2026-08-04 (create date) / 2026-08-04 (last modified date)
 :description: Load configuration (YAML) and build the argument parser.
-:src: [paper name] Federated Unlearning Compensation
+:src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
 from typing import Optional

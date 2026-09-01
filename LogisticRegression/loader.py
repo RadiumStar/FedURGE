@@ -3,7 +3,7 @@
 :date: 2026-08-04 (create date) / 2026-08-04 (last modified date)
 :description: Load Binary MNIST dataset for distributed logistic regression, 
     partition data among clients (iid/non_iid), and select unlearning samples.
-:src: [paper name] Federated Unlearning Compensation
+:src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
 import os

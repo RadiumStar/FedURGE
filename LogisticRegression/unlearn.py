@@ -1,9 +1,8 @@
 """
 :file: unlearn.py
 :date: 2026-08-04 (create date) / 2026-08-04 (last modified date)
-:description: Federated unlearning supporting fedgb, fedgd and fedcup algorithm. The server aggregates the gradients and
-    updates the global model.
-:src: 
+:description: Federated unlearning supporting fedgb, fedgd and fedcup algorithm. The server aggregates the gradients and updates the global model.
+:src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
 from copy import deepcopy

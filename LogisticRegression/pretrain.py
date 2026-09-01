@@ -3,7 +3,7 @@
 :date: 2026-08-04 (create date) / 2026-08-04 (last modified date)
 :description: Pretrain a global logistic regression model on the binary MNIST 
     task over all clients and save the model weight to cache/models.
-:src: [paper name] Federated Unlearning Compensation
+:src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
 import numpy as np

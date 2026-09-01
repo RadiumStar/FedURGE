@@ -5,7 +5,7 @@
     task over the REMAINING (non-unlearned) data of all clients, following the
     same federated training procedure as pretrain.py, and save the model weight
     to cache/models.
-:src: [paper name] Federated Unlearning Compensation
+:src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
 import os

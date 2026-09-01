@@ -1,9 +1,8 @@
 """
 :file: optimizer.py
 :date: 2026-08-04 (create date) / 2026-08-04 (last modified date)
-:description: Loss functions, gradients, and gradient descent update for the
-    (un)learning compensation algorithm on binary logistic regression.
-:src: [paper name] Federated Unlearning Compensation
+:description: Loss functions, gradients, and gradient descent update
+:src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
 import numpy as np
