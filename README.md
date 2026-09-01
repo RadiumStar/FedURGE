@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
 The full dependency list is available in [`requirements.txt`](requirements.txt). If you use a different CUDA version, please install the matching `torch` / `torchvision` wheels from [pytorch.org](https://pytorch.org/get-started/previous-versions/) before step 3.
 
-## 🐱💻 Code
+## 🧑‍💻 Code
 
 The repository contains two self-contained sub-projects:
 
