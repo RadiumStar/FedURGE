@@ -1,0 +1,72 @@
+# ResNet34 on Tiny ImageNet configuration
+
+
+# general settings
+seed: 0
+cuda: 0
+save: "FedAvg_tiny_imagenet"
+
+
+# dataset settings
+dataset: "tiny_imagenet"
+input_channel: 3
+input_size: 64
+num_classes: 200
+
+
+# unlearning settings
+unlearn_method: "FedAvg"
+unlearn_select: "backdoor"
+trigger_type: "pattern"
+trigger_size: 6
+trigger_distance: 4
+target_label: 4
+src_label: null
+unlearn_perc: 0.05
+unlearn_client_perc: 1.0
+
+
+# model settings
+model: "ResNet34_TINY_IMAGENET"
+pretrain_model: null
+
+
+# optimizer settings
+optimizer: "SGD"
+criterion: "CrossEntropyLoss"
+
+
+lr: 0.01
+ft_lr: 0.01
+momentum: 0.9
+weight_decay: 5e-4
+beta1: 0.9
+beta2: 0.999
+clipping: 0
+
+
+batch_size: 128
+
+# federated settings
+num_clients: 10
+partition: "non_iid"
+alpha: 0.5  
+
+global_epochs: 100
+local_epochs: 2
+unlearn_epochs: 80
+refine_epochs: 20
+
+communicator: "Communicator"
+compressor: "Compressor"
+k: null
+sparsity: null
+is_init_compressed: false
+eta: 0.001
+
+cos_threshold: -1
+unlearn_acc_threshold: 0.01
+
+# FedCUP settings
+delta: 0.999
+layerwise: true

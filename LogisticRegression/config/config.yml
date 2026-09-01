@@ -1,0 +1,48 @@
+# logistic regression on binary classification mnist configuration (digit 3 and 8)
+
+# general settings
+seed: 0
+cuda: 3 
+save: "FedAvg_binary_mnist" 
+
+
+# dataset settings
+dataset: "binary_mnist"
+input_channel: 1
+input_size: 28
+num_classes: 2
+
+
+# unlearning settings
+unlearn_method: "FedRL"
+unlearn_alg: "proposed"
+delta: 0.9999
+unlearn_select: "backdoor"
+target_label: 1
+src_label: 0
+unlearn_perc: 0.05
+unlearn_client_perc: 1.0
+
+
+# model settings
+model: "LogisticRegression_BINARY_MNIST"
+pretrain_model: null
+
+
+# optimizer settings
+optimizer: "SGD"
+criterion: "BCEWithLogitsLoss"
+
+lr: 0.1 
+
+batch_size: 12000
+
+# federated settings
+num_clients: 10
+partition: "non_iid"
+alpha: 0.5
+
+global_epochs: 5000
+local_epochs: 1
+unlearn_epochs: 80
+refine_epochs: 20

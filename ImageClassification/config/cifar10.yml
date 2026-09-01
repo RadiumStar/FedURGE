@@ -1,0 +1,72 @@
+# ResNet18 on CIFAR10 configuration 
+
+
+# general settings
+seed: 0
+cuda: 0
+save: "FedAvg_cifar10" 
+
+
+# dataset settings
+dataset: "cifar10"
+input_channel: 3
+input_size: 32
+num_classes: 10
+
+
+# unlearning settings
+unlearn_method: "FedAvg"
+unlearn_select: "backdoor"
+trigger_type: "pattern"
+trigger_size: 3
+trigger_distance: 2
+target_label: 9
+src_label: null
+unlearn_perc: 0.05
+unlearn_client_perc: 1.0
+
+
+# model settings
+model: "ResNet18"
+pretrain_model: null  
+
+
+# optimizer settings
+optimizer: "SGD"
+criterion: "CrossEntropyLoss"
+
+lr: 0.01
+ft_lr: 0.01
+momentum: 0.9
+weight_decay: 5e-4
+beta1: 0.9
+beta2: 0.999
+clipping: 0
+
+batch_size: 128
+
+
+# federated settings
+num_clients: 10
+partition: "non_iid"
+alpha: 0.5
+
+global_epochs: 150
+local_epochs: 1
+unlearn_epochs: 80
+refine_epochs: 20
+
+communicator: "Communicator"
+compressor: "Compressor"
+k: null
+sparsity: null
+is_init_compressed: false
+eta: 0.001
+
+cos_threshold: -1
+unlearn_acc_threshold: 0.01
+
+# FedCUP settings
+delta: 0.999
+layerwise: true
+

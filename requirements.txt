@@ -1,0 +1,15 @@
+# Federated Unlearning with Contractive Unlearning Perturbation (FedCUP)
+# Tested with Python 3.9
+
+# --- Core scientific / visualization ---
+numpy==1.26.4
+matplotlib==3.9.2
+Pillow==10.4.0
+PyYAML==6.0.2
+
+# --- Deep learning ---
+# Note: install the CUDA-specific wheels first (see README):
+#   pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 \
+#       --extra-index-url https://download.pytorch.org/whl/cu116
+torch==1.13.1
+torchvision==0.14.1

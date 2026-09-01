@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model checkpoints / generated weights (regenerable via pretrain scripts)
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Dataset files / generated data indices
+data/
+*.npy
+*.npz
+*.pkl
+
+# Run logs (generated experiment output)
+*.log
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
