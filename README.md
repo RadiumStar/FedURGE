@@ -9,6 +9,14 @@
 
 This is the official code repository for our paper *Provably Convergent Federated Unlearning with the Aid of Retained Gradient Estimators* (FedURGE), which is currently under review at the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2027).
 
+<div align="center">
+
+<img src="./assets/FedURGE_visualization.png" width="85%">
+
+###### FedURGE: seek $d_i^t$ simultaneously satisfying the contraction property and maximally aligned with $-\nabla f_i^t$
+
+</div>
+
 ## 🖥️ Experimental Platform
 
 All experiments were conducted on a server equipped with **4 × NVIDIA GeForce RTX 3080 Ti GPUs** (CUDA 11.6, Ubuntu Linux).
