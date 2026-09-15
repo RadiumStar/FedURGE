@@ -1,10 +1,11 @@
 # FedURGE: Federated Unlearning with Retained Gradient Estimators
 
-[![Venue: ICASSP 2027](https://img.shields.io/badge/Venue-ICASSP%202027-1f77b4)]()
+[![Venue: ICASSP 2027](https://img.shields.io/badge/Venue-ICASSP%202027-1f77b4)](https://2027.ieeeicassp.org/event/about-conference/)
 [![Status: Under Review](https://img.shields.io/badge/Status-Under%20Review-orange)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)]()
-[![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)]()
+[![GitHub top language](https://img.shields.io/github/languages/top/RadiumStar/FedURGE)](https://github.com/RadiumStar/FedURGE)
+[![GitHub repo size](https://img.shields.io/github/repo-size/RadiumStar/FedURGE)](https://github.com/RadiumStar/FedURGE)
+[![GitHub stars](https://img.shields.io/github/stars/RadiumStar/FedURGE)](https://github.com/RadiumStar/FedURGE)
 
 This is the official code repository for our paper *Provably Convergent Federated Unlearning with the Aid of Retained Gradient Estimators* (FedURGE), which is currently under review at the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2027).
 
