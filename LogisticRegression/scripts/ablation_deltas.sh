@@ -1,6 +1,6 @@
 mkdir -p logs/deltas
 
-UNLEARN_ALGS=("fedcup")
+UNLEARN_ALGS=("fedurge")
 PARTITION=iid
 ALPHA=0.5
 SEEDS=(0 1 2 3 4)

@@ -68,7 +68,7 @@ eta: 0.001
 cos_threshold: -1
 unlearn_acc_threshold: 0.01
 
-# FedCUP settings
+# FedURGE settings
 delta: 0.999
 layerwise: true
 

@@ -1,4 +1,4 @@
-# Federated Unlearning with Contractive Unlearning Perturbation
+# FedURGE: Federated Unlearning with Retained Gradient Estimators
 
 [![Venue: ICASSP 2027](https://img.shields.io/badge/Venue-ICASSP%202027-1f77b4)]()
 [![Status: Under Review](https://img.shields.io/badge/Status-Under%20Review-orange)]()
@@ -6,7 +6,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)]()
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)]()
 
-This is the official code repository for our paper *Federated Unlearning with Contractive Unlearning Perturbation* (FedCUP), which is currently under review at the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2027).
+This is the official code repository for our paper *Provably Convergent Federated Unlearning with the Aid of Retained Gradient Estimators* (FedURGE), which is currently under review at the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2027).
 
 ## 🖥️ Experimental Platform
 
@@ -18,8 +18,8 @@ The code is developed and tested with **Python 3.9**. We recommend using a conda
 
 ```bash
 # 1) create and activate the environment
-conda create -n fedcup python=3.9 -y
-conda activate fedcup
+conda create -n fedurge python=3.9 -y
+conda activate fedurge
 
 # 2) install the CUDA-specific PyTorch wheels (CUDA 11.6, matching our setup)
 pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 \
@@ -40,14 +40,14 @@ The repository contains two self-contained sub-projects:
 │   ├── unlearning.py           # main federated unlearning entry
 │   ├── init.py                 # argument & YAML configuration parsing
 │   ├── config/                 # per-dataset configurations
-│   ├── core/                   # FedCUP (ours) + FedAvg & all baselines
+│   ├── core/                   # FedURGE (ours) + FedAvg & all baselines
 │   ├── datasets/               # CIFAR-10/100, SVHN, Tiny-ImageNet loaders
 │   ├── models/                 # CNN, MLP, ResNet architectures
 │   ├── scripts/                # reproducible run scripts
 │   └── utils/                  # communicators & compressors (EF14/EF21/EFFACE, TopK, ...)
 └── LogisticRegression/         # binary logistic regression (MNIST 3 vs. 8)
     ├── pretrain.py             # federated pretraining (FedAvg)
-    ├── unlearn.py              # federated unlearning (fedgb / fedgd / fedcup)
+    ├── unlearn.py              # federated unlearning (fedgb / fedgd / fedurge)
     ├── retrain.py              # retraining-from-scratch baseline
     ├── optimizer.py            # losses, gradients, and update rules
     ├── scripts/                # pretrain / unlearn / retrain / delta ablation
@@ -60,20 +60,20 @@ Default dataset loading path is `./data/` (can be changed in `ROOT_FOLDER` in [`
 
 ### Logistic Regression
 
-[`LogisticRegression/`](LogisticRegression) provides a convex / strongly-convex testbed on **binary MNIST** (digits 3 vs. 8) for studying the behavior of FedCUP, including an ablation over the contraction coefficient `delta`.
+[`LogisticRegression/`](LogisticRegression) provides a convex / strongly-convex testbed on **binary MNIST** (digits 3 vs. 8) for studying the behavior of FedURGE, including an ablation over the contraction coefficient `delta`.
 
 ```bash
 cd LogisticRegression
 
 bash scripts/pretrain.sh         # federated pretraining (FedAvg)
-bash scripts/unlearn.sh          # federated unlearning (fedgb / fedgd / fedcup)
+bash scripts/unlearn.sh          # federated unlearning (fedgb / fedgd / fedurge)
 bash scripts/retrain.sh          # retraining-from-scratch baseline
 bash scripts/ablation_deltas.sh  # ablation over the contraction coefficient
 ```
 
 ### Image Classification
 
-[`ImageClassification/`](ImageClassification) evaluates federated unlearning on **CIFAR-10**, **CIFAR-100**, **SVHN** and **Tiny-ImageNet** with backdoor-based unlearning (pixel-pattern triggers). It implements the proposed **FedCUP** as well as a comprehensive set of baselines.
+[`ImageClassification/`](ImageClassification) evaluates federated unlearning on **CIFAR-10**, **CIFAR-100**, **SVHN** and **Tiny-ImageNet** with backdoor-based unlearning (pixel-pattern triggers). It implements the proposed **FedURGE** as well as a comprehensive set of baselines.
 
 ```bash
 cd ImageClassification
@@ -81,8 +81,8 @@ cd ImageClassification
 # 1) Federated pretraining (FedAvg) — produces the pretrained global model
 bash scripts/cifar10/pretrain.sh
 
-# 2) Federated unlearning with FedCUP (layer-wise, sweeps the contraction coefficient delta)
-bash scripts/fedcup.sh          # or: bash scripts/delta.sh
+# 2) Federated unlearning with FedURGE (layer-wise, sweeps the contraction coefficient delta)
+bash scripts/fedurge.sh          # or: bash scripts/delta.sh
 
 # 3) ablation over the contraction coefficient delta
 bash scripts/delta.sh

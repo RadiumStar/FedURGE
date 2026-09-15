@@ -60,7 +60,7 @@ def get_args(config_file: Optional[str] = None, print_args: bool = True) -> argp
     parser.add_argument('--num_classes', type=int, default=config.get('num_classes', 10), help='Number of classes in the dataset')
 
     # Unlearning settings
-    parser.add_argument('--unlearn_method', type=str, default=config.get('unlearn_method', 'FedGB'), choices=['FedAvg', 'FedGB', 'FedRL', 'FedRetrain', 'FedGD', 'FedGA', 'FedAU', 'FedNot', 'FedPSGA', 'FedUOSC', 'FedRLGP', 'FedMemPrune', 'FedCUP', 'FedOSD'], help='Unlearning method')
+    parser.add_argument('--unlearn_method', type=str, default=config.get('unlearn_method', 'FedGB'), choices=['FedAvg', 'FedGB', 'FedRL', 'FedRetrain', 'FedGD', 'FedGA', 'FedAU', 'FedNot', 'FedPSGA', 'FedUOSC', 'FedRLGP', 'FedMemPrune', 'FedURGE', 'FedOSD'], help='Unlearning method')
     parser.add_argument('--unlearn_select', type=str, default=config.get('unlearn_select', 'backdoor'), choices=['backdoor', 'class', 'random'], help='Unlearning selection method')
     parser.add_argument('--trigger_type', type=str, default=config.get('trigger_type', 'pattern'), choices=['pixel', 'pattern'], help='Backdoor trigger type')
     parser.add_argument('--trigger_size', type=int, default=config.get('trigger_size', 3), help='Backdoor trigger size')
@@ -106,8 +106,8 @@ def get_args(config_file: Optional[str] = None, print_args: bool = True) -> argp
     parser.add_argument('--bits', type=int, default=config.get('bits', None), help='Number of bits for quantization compressor, if None, use levels 16(bits=4)')
     parser.add_argument('--is_init_compressed', type=bool, default=config.get('is_init_compressed', False), help='Whether to compress the initial model')
     parser.add_argument('--cos_threshold', type=float, default=config.get('cos_threshold', -1), help='Cosine similarity threshold for client selection in FedRLGP, if < 0, do not use cosine similarity for selection')
-    parser.add_argument('--delta', type=float, default=config.get('delta', 0.999), help='Contraction parameter delta for FedCUP controlling the clip radius R = (delta / lambda_i) * ||d||')
-    parser.add_argument('--layerwise', type=int, default=config.get('layerwise', True), help='Whether FedCUP constricts the unlearning gradient per layer (True, default) or with a single global radius (False)')
+    parser.add_argument('--delta', type=float, default=config.get('delta', 0.999), help='Contraction parameter delta for FedURGE controlling the clip radius R = (delta / lambda_i) * ||d||')
+    parser.add_argument('--layerwise', type=int, default=config.get('layerwise', True), help='Whether FedURGE constricts the unlearning gradient per layer (True, default) or with a single global radius (False)')
     parser.add_argument('--unlearn_acc_threshold', type=float, default=config.get('unlearn_acc_threshold', 0.01), help='Unlearning accuracy threshold for early stopping in FU')
 
     print("Parsed arguments:", parser.parse_args() if print_args else "Arguments parsed, not printing due to print_args=False")

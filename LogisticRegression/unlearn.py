@@ -1,7 +1,7 @@
 """
 :file: unlearn.py
 :date: 2026-08-04 (create date) / 2026-08-04 (last modified date)
-:description: Federated unlearning supporting fedgb, fedgd and fedcup algorithm. The server aggregates the gradients and updates the global model.
+:description: Federated unlearning supporting fedgb, fedgd and fedurge algorithm. The server aggregates the gradients and updates the global model.
 :src: [Federated Unlearning with Contractive Unlearning Perturbation]()
 """
 
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     gr_track = None
     error = None
-    if args.unlearn_alg == 'fedcup':
+    if args.unlearn_alg == 'fedurge':
         gr_track = []
         for i in range(num_clients):
             gr_track.append(np.zeros(w.shape[0]))
@@ -90,7 +90,7 @@ if __name__ == "__main__":
                 delta = grad_r 
             elif args.unlearn_alg == 'fedgb':  
                 delta = lam_us[i] * grad_u + (1 - lam_us[i]) * grad_r
-            elif args.unlearn_alg == 'fedcup': 
+            elif args.unlearn_alg == 'fedurge': 
                 d = grad_r - gr_track[i]
                 grad_u_used = grad_u  # the grad_u actually used by this variant 
                 lam_i = lam_us[i]
@@ -112,7 +112,7 @@ if __name__ == "__main__":
             remain_loss = logistic_loss(w, X_remain_all, y_remain_all, lam=lam)
             unlearn_loss = -logistic_loss(w, X_unlearn_all, y_unlearn_all, lam=lam)
             diffs_mean = np.mean(diffs)
-            if args.unlearn_alg == 'fedcup':
+            if args.unlearn_alg == 'fedurge':
                 Rt_mean = np.mean(Rt)
                 Ut_mean = np.mean(Ut)
                 print(f"Epoch {epoch}/{epochs}, Test Accuracy: {test_acc:.4f}, Backdoor Test Accuracy: {backdoor_test_acc:.4f}, Diff: {diffs_mean:.4f}, Remain Loss: {remain_loss:.4f}, Unlearn Loss: {unlearn_loss:.4f}, R_t: {Rt_mean}, U_t: {Ut_mean}")

@@ -1,4 +1,4 @@
-# Federated Unlearning Compensation (FedCUP, layer-wise) for image classification
+# Federated Unlearning with Residual Gradient Estimation (FedURGE, layer-wise) for image classification
 
 SEEDS=(0 1 2 3 4 5 6 7 8 9)
 
@@ -19,15 +19,15 @@ for i in "${!DATASETS[@]}"; do
     # create log directory if it doesn't exist
     mkdir -p "logs/deltas"
 
-    # run the unlearning process with the FedCUP method 
+    # run the unlearning process with the FedURGE method 
     for DELTA in "${DELTAS_ARR[@]}"; do
-        echo "Running FedCUP on $DATASET (lr=$LR, delta=$DELTA, unlearn_epochs=$UNLEARN_EPOCHS, local_epochs=$LOCAL_EPOCHS)"
+        echo "Running FedURGE on $DATASET (lr=$LR, delta=$DELTA, unlearn_epochs=$UNLEARN_EPOCHS, local_epochs=$LOCAL_EPOCHS)"
         for SEED in "${SEEDS[@]}"; do
             CUDA="${CUDA_AVAILABLE[$SEED % ${#CUDA_AVAILABLE[@]}]}"
             python -u unlearning.py --seed $SEED --config "config/${DATASET}.yml" --lr $LR \
-                --unlearn_method FedCUP --delta $DELTA --layerwise 1 \
+                --unlearn_method FedURGE --delta $DELTA --layerwise 1 \
                 --unlearn_epochs $UNLEARN_EPOCHS --local_epochs $LOCAL_EPOCHS --refine_epochs 0 \
-                --pretrain_model "FedAvg_${DATASET}_${SEED}" --save "FedCUP_${DATASET}_${SEED}" \
+                --pretrain_model "FedAvg_${DATASET}_${SEED}" --save "FedURGE_${DATASET}_${SEED}" \
                 --cuda $CUDA > "logs/deltas/delta${DELTA}_${DATASET}_${SEED}.log" 2>&1 &
 
             if (( ($SEED + 1) % $CUDA_GAP == 0 )); then

@@ -61,7 +61,7 @@ def get_args(config_file: Optional[str] = None) -> argparse.Namespace:
     parser.add_argument('--num_classes', type=int, default=config.get('num_classes', 10), help='Number of classes in the dataset')
 
     # Unlearning settings 
-    parser.add_argument('--unlearn_alg', type=str, default=config.get('unlearn_alg', 'fedcup'), choices=['fedgb', 'fedgd', 'fedcup'], help='Unlearning algorithm: fedgb | fedgd | fedcup')
+    parser.add_argument('--unlearn_alg', type=str, default=config.get('unlearn_alg', 'fedurge'), choices=['fedgb', 'fedgd', 'fedurge'], help='Unlearning algorithm: fedgb | fedgd | fedurge')
     parser.add_argument('--delta', type=float, default=config.get('delta', 0.9), help='Contraction constant in (0,1) for the dynamic lambda of the proposed algorithm')
     parser.add_argument('--unlearn_select', type=str, default=config.get('unlearn_select', 'backdoor'), choices=['backdoor', 'class', 'random'], help='Unlearning selection method')
     parser.add_argument('--target_label', type=int, default=config.get('target_label', 1), help='Target label for class and backdoor unlearning')

@@ -1,6 +1,6 @@
 mkdir -p logs/methods
 
-UNLEARN_ALGS=("fedgb" "fedgd" "fedcup")
+UNLEARN_ALGS=("fedgb" "fedgd" "fedurge")
 PARTITION=iid
 ALPHA=0.5
 SEEDS=(0 1 2 3 4)

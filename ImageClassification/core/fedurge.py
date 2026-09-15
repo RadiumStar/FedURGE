@@ -258,7 +258,7 @@ class ClientFedURGE(Client):
 
 class ServerFedURGE(Server):
     def __init__(self, global_model: nn.Module, args=None):
-        """Federated Learning Server for Federated Unlearning Compensation Algorithm
+        """Federated Learning Server for Federated Unlearning with Residual Gradient Estimation Algorithm
 
         :param global_model: Global model for the server
         :param args: Other arguments

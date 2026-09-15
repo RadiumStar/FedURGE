@@ -17,12 +17,7 @@ DELTAS_ARR=(0.9999 0.9999 0.9999 0.9999)
 LAYERWISE=1
 
 for i in "${!DATASETS[@]}"; do
-    DATASET="${DATASETS[$i]}" 
-
-    # only run tiny_imagenet
-    if [[ "$DATASET" != "svhn" ]]; then
-        continue
-    fi
+    DATASET="${DATASETS[$i]}"  
 
     UNLEARN_EPOCHS="${UNLEARN_EPOCHS_ARR[$i]}"
     LOCAL_EPOCHS="${LOCAL_EPOCHS_ARR[$i]}"

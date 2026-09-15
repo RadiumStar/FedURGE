@@ -16,7 +16,7 @@ from .feduosc import ClientFedUOSC, ServerFedUOSC
 from .fedosd import ClientFedOSD, ServerFedOSD
 
 # our method
-from .fedcup import ClientFedCUP, ServerFedCUP 
+from .fedurge import ClientFedURGE, ServerFedURGE 
 
 
 def get_client_class(method: str) -> type[Client]:
